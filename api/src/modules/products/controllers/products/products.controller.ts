@@ -1,4 +1,4 @@
-import { Controller, Body, Param } from '@nestjs/common';
+import { Controller, Body, Param, ParseIntPipe } from '@nestjs/common';
 import { ApiParam, ApiTags } from '@nestjs/swagger';
 
 import { API_ENDPOINTS, IHttpResponse } from '@core/constants';
@@ -46,7 +46,7 @@ export class ProductsController {
     responseType: Product,
   })
   @ApiParam({ name: 'id', type: Number })
-  async findById(@Param('id') id: number): Promise<IHttpResponse<Product>> {
+  async findById(@Param('id', ParseIntPipe) id: number): Promise<IHttpResponse<Product>> {
     const data = await this.productsService.findOne({ where: { id } });
     return { data };
   }
@@ -60,7 +60,10 @@ export class ProductsController {
     responseType: Product,
   })
   @ApiParam({ name: 'id', type: Number })
-  async updateById(@Param('id') id: number, @Body() body: ProductUpdateDto): Promise<IHttpResponse<Product>> {
+  async updateById(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() body: ProductUpdateDto,
+  ): Promise<IHttpResponse<Product>> {
     const data = await this.productsService.updateById(id, body);
     return { data };
   }
@@ -74,7 +77,7 @@ export class ProductsController {
     responseType: Product,
   })
   @ApiParam({ name: 'id', type: Number })
-  async deleteById(@Param('id') id: number): Promise<IHttpResponse<Product>> {
+  async deleteById(@Param('id', ParseIntPipe) id: number): Promise<IHttpResponse<Product>> {
     const data = await this.productsService.deleteById(id);
     return { data };
   }

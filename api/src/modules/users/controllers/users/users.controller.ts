@@ -1,4 +1,4 @@
-import { Body, Controller, Param } from '@nestjs/common';
+import { Body, Controller, Param, ParseIntPipe } from '@nestjs/common';
 import { ApiParam, ApiTags } from '@nestjs/swagger';
 
 import { ApiDelete, ApiGet, ApiPatch, ApiPost } from '@shared/decorators';
@@ -50,7 +50,7 @@ export class UsersController {
     responseType: User,
   })
   @ApiParam({ name: 'id', type: Number })
-  async findById(@Param('id') id: number): Promise<IHttpResponse<User>> {
+  async findById(@Param('id', ParseIntPipe) id: number): Promise<IHttpResponse<User>> {
     const data = await this.usersService.findOne({ where: { id } });
     return { data };
   }
@@ -64,7 +64,7 @@ export class UsersController {
     responseType: User,
   })
   @ApiParam({ name: 'id', type: Number })
-  async updateById(@Param('id') id: number, @Body() body: UserUpdateDto): Promise<IHttpResponse<User>> {
+  async updateById(@Param('id', ParseIntPipe) id: number, @Body() body: UserUpdateDto): Promise<IHttpResponse<User>> {
     const data = await this.usersService.updateById(id, body);
     return { data };
   }
@@ -78,7 +78,7 @@ export class UsersController {
     responseType: User,
   })
   @ApiParam({ name: 'id', type: Number })
-  async deleteById(@Param('id') id: number): Promise<IHttpResponse<User>> {
+  async deleteById(@Param('id', ParseIntPipe) id: number): Promise<IHttpResponse<User>> {
     const data = await this.usersService.deleteById(id);
     return { data };
   }
