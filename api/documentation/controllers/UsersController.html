@@ -538,7 +538,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @ApiPost({
-    roles: ALL_ROLES_EXCEPT(AuthRole.REGULAR),
+    roles: ALL_ROLES_EXCEPT(AuthRole.CLIENT),
     summary: &#x27;Create a new &#x60;User&#x60;&#x27;,
     description: &#x27;Stores a new &#x60;User&#x60; record into the database&#x27;,
     responseDescription: &#x27;A model containing the newly created &#x60;User&#x60; information&#x27;,
@@ -550,7 +550,7 @@ export class UsersController {
   }
 
   @ApiGet({
-    roles: ALL_ROLES_EXCEPT(AuthRole.REGULAR),
+    roles: ALL_ROLES_EXCEPT(AuthRole.CLIENT),
     summary: &#x27;Get all &#x60;Users&#x60;&#x27;,
     description: &#x27;Retrieves a list containing every &#x60;User&#x60; record in the database&#x27;,
     responseDescription: &#x27;A list of models containing the information of every &#x60;User&#x60; in the database&#x27;,

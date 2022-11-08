@@ -690,7 +690,7 @@ export class AuthenticationService {
 
   async signUp(dto: AuthenticationSignUpDto, roles?: AuthRole[]): Promise&lt;AuthTokenResponse&gt; {
     const hashedPassword &#x3D; await bcrypt.hash(dto.plainTextPassword, 10);
-    const validatedRoles &#x3D; await this.validateAuthRoles(roles ?? [AuthRole.REGULAR]);
+    const validatedRoles &#x3D; await this.validateAuthRoles(roles ?? [AuthRole.CLIENT]);
     const authentication &#x3D; this.authRepository.create({
       identifier: dto.identifier,
       passwordHash: hashedPassword,

@@ -16,7 +16,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @ApiPost({
-    roles: ALL_ROLES_EXCEPT(AuthRole.REGULAR),
+    roles: ALL_ROLES_EXCEPT(AuthRole.CLIENT),
     summary: 'Create a new `User`',
     description: 'Stores a new `User` record into the database',
     responseDescription: 'A model containing the newly created `User` information',
@@ -28,7 +28,7 @@ export class UsersController {
   }
 
   @ApiGet({
-    roles: ALL_ROLES_EXCEPT(AuthRole.REGULAR),
+    roles: ALL_ROLES_EXCEPT(AuthRole.CLIENT),
     summary: 'Get all `Users`',
     description: 'Retrieves a list containing every `User` record in the database',
     responseDescription: 'A list of models containing the information of every `User` in the database',
