@@ -1,0 +1,649 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>next-ecommerce documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">next-ecommerce documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content controller">
+                   <div class="content-data">
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Controllers</li>
+  <li >ProductsController</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/products/controllers/products/products.controller.ts</code>
+        </p>
+
+
+
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteById" >deleteById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#find" >find</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findById" >findById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateById" >updateById</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(dto: <a href="../classes/ProductCreateDto.html" target="_self">ProductCreateDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@ApiPost({roles: undefined, summary: &#x27;Create a new &#x60;Product&#x60;&#x27;, description: &#x27;Stores a new &#x60;Product&#x60; record into the database&#x27;, responseDescription: &#x27;A model containing the newly created &#x60;Product&#x60; information&#x27;, responseType: Product})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/modules/products/controllers/products/products.controller.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dto</td>
+                                    <td>
+                                                <code><a href="../classes/ProductCreateDto.html" target="_self" >ProductCreateDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/IHttpResponse.html" target="_self" >Promise&lt;IHttpResponse&lt;Product&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteById"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteById</b></span>
+                        <a href="#deleteById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@ApiDelete({path: undefined, roles: undefined, summary: &#x27;Delete a &#x60;Product&#x60; by Id&#x27;, description: &#x27;Deletes a &#x60;Product&#x60; record that matches the Id&#x27;, responseDescription: &#x27;A model containing the information of the deleted &#x60;Product&#x60;&#x27;, responseType: Product})<br />@ApiParam({name: &#x27;id&#x27;, type: Number})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">src/modules/products/controllers/products/products.controller.ts:77</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/IHttpResponse.html" target="_self" >Promise&lt;IHttpResponse&lt;Product&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="find"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>find</b></span>
+                        <a href="#find"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>find()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@ApiGet({roles: ALL_ROLES, summary: &#x27;Get all &#x60;Products&#x60;&#x27;, description: &#x27;Retrieves a list containing every &#x60;Product&#x60; record in the database&#x27;, responseDescription: &#x27;A list of models containing the information of every &#x60;Product&#x60; in the database&#x27;, responseType: undefined})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/modules/products/controllers/products/products.controller.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/IHttpResponse.html" target="_self" >Promise&lt;IHttpResponse&lt;Product[]&gt;&gt;</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findById"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findById</b></span>
+                        <a href="#findById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@ApiGet({path: undefined, roles: ALL_ROLES, summary: &#x27;Get a &#x60;Product&#x60; by Id&#x27;, description: &#x27;Retrieves a &#x60;Product&#x60; record that matches the Id&#x27;, responseDescription: &#x27;A model containing the information of the matched &#x60;Product&#x60;&#x27;, responseType: Product})<br />@ApiParam({name: &#x27;id&#x27;, type: Number})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/modules/products/controllers/products/products.controller.ts:49</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/IHttpResponse.html" target="_self" >Promise&lt;IHttpResponse&lt;Product&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateById"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updateById</b></span>
+                        <a href="#updateById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, body: <a href="../classes/ProductUpdateDto.html" target="_self">ProductUpdateDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@ApiPatch({path: undefined, roles: undefined, summary: &#x27;Update a &#x60;Product&#x60; by Id&#x27;, description: &#x27;Updates a &#x60;Product&#x60; record that matches the Id&#x27;, responseDescription: &#x27;A model containing the updated information of the matched &#x60;Product&#x60;&#x27;, responseType: Product})<br />@ApiParam({name: &#x27;id&#x27;, type: Number})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/modules/products/controllers/products/products.controller.ts:63</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>body</td>
+                                    <td>
+                                                <code><a href="../classes/ProductUpdateDto.html" target="_self" >ProductUpdateDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/IHttpResponse.html" target="_self" >Promise&lt;IHttpResponse&lt;Product&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Body, Param } from &#x27;@nestjs/common&#x27;;
+import { ApiParam, ApiTags } from &#x27;@nestjs/swagger&#x27;;
+
+import { API_ENDPOINTS, IHttpResponse } from &#x27;@core/constants&#x27;;
+import { ApiDelete, ApiGet, ApiPatch, ApiPost } from &#x27;@shared/decorators&#x27;;
+import { ALL_ROLES, AuthRole } from &#x27;@authentication/constants&#x27;;
+import { ProductCreateDto, ProductUpdateDto } from &#x27;@products/dto&#x27;;
+import { Product } from &#x27;@products/entities&#x27;;
+import { ProductsService } from &#x27;@products/services&#x27;;
+
+@ApiTags(&#x27;Products&#x27;)
+@Controller(API_ENDPOINTS.PRODUCTS.BASE_PATH)
+export class ProductsController {
+  constructor(private readonly productsService: ProductsService) {}
+
+  @ApiPost({
+    roles: [AuthRole.ADMIN],
+    summary: &#x27;Create a new &#x60;Product&#x60;&#x27;,
+    description: &#x27;Stores a new &#x60;Product&#x60; record into the database&#x27;,
+    responseDescription: &#x27;A model containing the newly created &#x60;Product&#x60; information&#x27;,
+    responseType: Product,
+  })
+  async create(@Body() dto: ProductCreateDto): Promise&lt;IHttpResponse&lt;Product&gt;&gt; {
+    const data &#x3D; await this.productsService.create(dto);
+    return { data };
+  }
+
+  @ApiGet({
+    roles: ALL_ROLES,
+    summary: &#x27;Get all &#x60;Products&#x60;&#x27;,
+    description: &#x27;Retrieves a list containing every &#x60;Product&#x60; record in the database&#x27;,
+    responseDescription: &#x27;A list of models containing the information of every &#x60;Product&#x60; in the database&#x27;,
+    responseType: [Product],
+  })
+  async find(): Promise&lt;IHttpResponse&lt;Product[]&gt;&gt; {
+    const data &#x3D; await this.productsService.find();
+    return { data };
+  }
+
+  @ApiGet({
+    path: API_ENDPOINTS.PRODUCTS.BY_ID,
+    roles: ALL_ROLES,
+    summary: &#x27;Get a &#x60;Product&#x60; by Id&#x27;,
+    description: &#x27;Retrieves a &#x60;Product&#x60; record that matches the Id&#x27;,
+    responseDescription: &#x27;A model containing the information of the matched &#x60;Product&#x60;&#x27;,
+    responseType: Product,
+  })
+  @ApiParam({ name: &#x27;id&#x27;, type: Number })
+  async findById(@Param(&#x27;id&#x27;) id: number): Promise&lt;IHttpResponse&lt;Product&gt;&gt; {
+    const data &#x3D; await this.productsService.findOne({ where: { id } });
+    return { data };
+  }
+
+  @ApiPatch({
+    path: API_ENDPOINTS.PRODUCTS.BY_ID,
+    roles: [AuthRole.ADMIN],
+    summary: &#x27;Update a &#x60;Product&#x60; by Id&#x27;,
+    description: &#x27;Updates a &#x60;Product&#x60; record that matches the Id&#x27;,
+    responseDescription: &#x27;A model containing the updated information of the matched &#x60;Product&#x60;&#x27;,
+    responseType: Product,
+  })
+  @ApiParam({ name: &#x27;id&#x27;, type: Number })
+  async updateById(@Param(&#x27;id&#x27;) id: number, @Body() body: ProductUpdateDto): Promise&lt;IHttpResponse&lt;Product&gt;&gt; {
+    const data &#x3D; await this.productsService.updateById(id, body);
+    return { data };
+  }
+
+  @ApiDelete({
+    path: API_ENDPOINTS.PRODUCTS.BY_ID,
+    roles: [AuthRole.ADMIN],
+    summary: &#x27;Delete a &#x60;Product&#x60; by Id&#x27;,
+    description: &#x27;Deletes a &#x60;Product&#x60; record that matches the Id&#x27;,
+    responseDescription: &#x27;A model containing the information of the deleted &#x60;Product&#x60;&#x27;,
+    responseType: Product,
+  })
+  @ApiParam({ name: &#x27;id&#x27;, type: Number })
+  async deleteById(@Param(&#x27;id&#x27;) id: number): Promise&lt;IHttpResponse&lt;Product&gt;&gt; {
+    const data &#x3D; await this.productsService.deleteById(id);
+    return { data };
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProductsController.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
