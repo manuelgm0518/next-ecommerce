@@ -6,18 +6,21 @@ import to from 'await-to-js';
 import { User } from '@users/entities';
 import { UserCreateDto, UserUpdateDto } from '@users/dto';
 import { Authentication } from '@authentication/entities';
+import { ShoppingCartService } from '../shopping-cart/shopping-cart.service';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User)
     private readonly usersRepository: Repository<User>,
+    private readonly shoppingCartService: ShoppingCartService,
   ) {}
 
   async create(dto: UserCreateDto, authentication?: Authentication): Promise<User> {
     const user = this.usersRepository.create({ ...dto, authentication });
-    const [err] = await to(this.usersRepository.save(user));
+    const [err, res] = await to(this.usersRepository.save(user));
     if (err) throw new ForbiddenException(err.name, err.message);
+    await this.shoppingCartService.createCart(res);
     return user;
   }
 

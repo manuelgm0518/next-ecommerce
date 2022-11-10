@@ -34,7 +34,6 @@ export class UsersController {
     responseDescription: 'A list of models containing the information of every `User` in the database',
     responseType: [User],
   })
-  @UseSessionGuard()
   async find(@CurrentAuth() user: User): Promise<IHttpResponse<User[]>> {
     console.log(user);
     const data = await this.usersService.find();

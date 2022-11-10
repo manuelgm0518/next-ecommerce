@@ -5,6 +5,7 @@ import { Column, OneToOne, JoinColumn, Entity, PrimaryGeneratedColumn } from 'ty
 import { Authentication } from '@authentication/entities';
 import { AuthRole } from '@authentication/constants';
 import { Exclude } from 'class-transformer';
+import { ShoppingCart } from './shopping-cart.entity';
 
 @Entity()
 export class User {
@@ -32,6 +33,12 @@ export class User {
   @OneToOne(() => Authentication, { eager: true })
   @JoinColumn()
   authentication?: Authentication;
+
+  @ApiPropertyOptional({ type: () => Authentication })
+  @Exclude()
+  @OneToOne(() => ShoppingCart)
+  @JoinColumn()
+  shoppingCart?: ShoppingCart;
 
   get fullName(): string {
     return `${this.firstName} ${this.lastName}`;
