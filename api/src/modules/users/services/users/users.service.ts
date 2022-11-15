@@ -20,7 +20,7 @@ export class UsersService {
     const user = this.usersRepository.create({ ...dto, authentication });
     const [err, res] = await to(this.usersRepository.save(user));
     if (err) throw new ForbiddenException(err.name, err.message);
-    await this.shoppingCartService.createCart(res);
+    await this.shoppingCartService.createCart(res.id);
     return user;
   }
 

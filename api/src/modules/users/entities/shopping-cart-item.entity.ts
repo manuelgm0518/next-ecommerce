@@ -17,7 +17,7 @@ export class ShoppingCartItem {
   addedAt: Date;
 
   @ApiProperty({ type: () => Product })
-  @OneToOne(() => Product)
+  @OneToOne(() => Product, { eager: true })
   @JoinColumn()
   product: Product;
 

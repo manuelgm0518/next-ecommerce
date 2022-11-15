@@ -7,7 +7,6 @@ import { User } from '@users/entities';
 import { UsersService } from '@users/services';
 import { UserCreateDto, UserUpdateDto } from '@users/dto';
 import { CurrentAuth } from '@authentication/decorators';
-import { UseSessionGuard } from '@users/decorators';
 import { ALL_ROLES, ALL_ROLES_EXCEPT, AuthRole } from '@authentication/constants';
 
 @ApiTags('Users')

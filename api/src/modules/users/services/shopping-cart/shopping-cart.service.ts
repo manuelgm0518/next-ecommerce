@@ -4,7 +4,8 @@ import { Repository } from 'typeorm';
 import to from 'await-to-js';
 
 import { ShoppingCartAddItemDto, ShoppingCartUpdateItemDto } from '@users/dto';
-import { ShoppingCart, ShoppingCartItem, User } from '@users/entities';
+import { ShoppingCart, ShoppingCartItem } from '@users/entities';
+import { ShoppingCartRemoveItemDto } from '@users/dto/shopping-cart-remove-item.dto';
 
 @Injectable()
 export class ShoppingCartService {
@@ -15,18 +16,19 @@ export class ShoppingCartService {
     private readonly shoppingCartItemsRepository: Repository<ShoppingCartItem>,
   ) {}
 
-  async createCart(user: User): Promise<ShoppingCart> {
-    const exists = await this.shoppingCartsRepository.findOneBy({ user: { id: user.id } });
+  async createCart(userId: number): Promise<ShoppingCart> {
+    const exists = await this.shoppingCartsRepository.findOneBy({ user: { id: userId } });
     if (!exists) {
-      const cart = this.shoppingCartsRepository.create({ user });
+      const cart = this.shoppingCartsRepository.create({ user: { id: userId } });
       const [err] = await to(this.shoppingCartsRepository.save(cart));
       if (err) throw new ForbiddenException(err.name, err.message);
       return cart;
     }
+    return exists;
   }
 
   async findCart(userId: number): Promise<ShoppingCart> {
-    const cart = await this.shoppingCartsRepository.findOneBy({ user: { id: userId } });
+    const cart = await this.createCart(userId);
     return cart;
   }
 
@@ -42,17 +44,21 @@ export class ShoppingCartService {
   }
 
   async updateItem(userId: number, dto: ShoppingCartUpdateItemDto): Promise<ShoppingCartItem> {
-    const item = await this.shoppingCartItemsRepository.preload({ id: dto.shoppingCartItemId });
+    const item = await this.shoppingCartItemsRepository.preload({
+      shoppingCart: { user: { id: userId } },
+      amount: dto.amount,
+      id: dto.shoppingCartItemId,
+    });
     if (!item) throw new NotFoundException('ShoppingCartItem not found');
-    await this.shoppingCartItemsRepository.update(
-      { shoppingCart: { id: dto.shoppingCartItemId } },
-      { amount: dto.amount },
-    );
+    await this.shoppingCartItemsRepository.update({ id: dto.shoppingCartItemId }, { amount: dto.amount });
     return item;
   }
 
-  async removeItem(userId: number, dto: ShoppingCartUpdateItemDto): Promise<ShoppingCartItem> {
-    const item = await this.shoppingCartItemsRepository.findOneBy({ id: dto.shoppingCartItemId });
+  async removeItem(userId: number, dto: ShoppingCartRemoveItemDto): Promise<ShoppingCartItem> {
+    const item = await this.shoppingCartItemsRepository.findOneBy({
+      shoppingCart: { user: { id: userId } },
+      id: dto.shoppingCartItemId,
+    });
     if (!item) throw new NotFoundException('ShoppingCartItem not found');
     return await this.shoppingCartItemsRepository.remove(item);
   }

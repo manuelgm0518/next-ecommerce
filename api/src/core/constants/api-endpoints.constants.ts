@@ -6,7 +6,7 @@ export const API_VERSIONS = {
 
 export const API_PARAMS = {
   BY_ID: ':id',
-  BY_USER: ':user',
+  BY_USER: ':userId',
 };
 
 export const API_ENDPOINTS = {
@@ -20,7 +20,7 @@ export const API_ENDPOINTS = {
     },
     SHOPPING_CART: {
       BASE_PATH: 'shopping-cart',
-      BY_USER: API_PARAMS.BY_USER,
+      ITEM: 'item',
     },
   },
   PRODUCTS: {
