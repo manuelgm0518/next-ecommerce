@@ -16,4 +16,8 @@ export class ShoppingCart {
   @ApiPropertyOptional({ type: () => ShoppingCartItem, isArray: true })
   @OneToMany(() => ShoppingCartItem, (item) => item.shoppingCart, { eager: true })
   items: ShoppingCartItem[];
+
+  get isEmpty(): boolean {
+    return this.items.length === 0;
+  }
 }

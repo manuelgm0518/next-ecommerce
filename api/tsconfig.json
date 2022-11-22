@@ -27,7 +27,8 @@
 
       // Modules
       "@users/*": ["src/modules/users/*"],
-      "@products/*": ["src/modules/products/*"]
+      "@products/*": ["src/modules/products/*"],
+      "@sales/*": ["src/modules/sales/*"]
     }
   }
 }

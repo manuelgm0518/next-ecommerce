@@ -34,7 +34,7 @@ export class User {
   @JoinColumn()
   authentication?: Authentication;
 
-  @ApiPropertyOptional({ type: () => Authentication })
+  @ApiPropertyOptional({ type: () => ShoppingCart })
   @Exclude()
   @OneToOne(() => ShoppingCart)
   @JoinColumn()

@@ -27,4 +27,9 @@ export const API_ENDPOINTS = {
     BASE_PATH: 'products',
     BY_ID: API_PARAMS.BY_ID,
   },
+  SALES: {
+    BASE_PATH: 'sales',
+    BY_ID: API_PARAMS.BY_ID,
+    OWN: 'own',
+  },
 };
