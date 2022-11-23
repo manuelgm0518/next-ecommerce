@@ -43,8 +43,9 @@ export class SessionService {
     });
     if (!user) throw new NotFoundException('User not found');
     const { authToken } = await this.authService.logIn(user.authentication);
+    const roles = user.roles;
     delete user.authentication;
-    return { user, authToken };
+    return { user: { ...user, roles } as User, authToken };
   }
 
   async testAdmin() {

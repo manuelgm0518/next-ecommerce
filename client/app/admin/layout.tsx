@@ -1,9 +1,9 @@
-import { ClientNavigationBar } from "@/components/client";
+import { AdminNavigationBar } from "@/components/admin";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <ClientNavigationBar />
+      <AdminNavigationBar />
       {children}
     </div>
   );
