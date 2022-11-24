@@ -4,7 +4,8 @@ import { FindManyOptions, FindOneOptions, Repository } from 'typeorm';
 import to from 'await-to-js';
 
 import { Sale, SaleProduct } from '@sales/entities';
-import { UsersService } from '@users/services';
+import { ShoppingCartService, UsersService } from '@users/services';
+import { ProductsService } from '@products/services';
 
 @Injectable()
 export class SalesService {
@@ -14,31 +15,36 @@ export class SalesService {
     @InjectRepository(SaleProduct)
     private readonly saleProductsRepository: Repository<SaleProduct>,
     private readonly usersService: UsersService,
+    private readonly shoppingCartService: ShoppingCartService,
+    private readonly productsService: ProductsService,
   ) {}
 
   async create(userId: number): Promise<Sale> {
-    const user = await this.usersService.findOne({ where: { id: userId }, relations: { shoppingCart: true } });
+    const user = await this.usersService.findOne({ where: { id: userId }, relations: ['shoppingCart'] });
     if (!user) throw new NotFoundException('The provided User does not exist.');
-    if (!user.shoppingCart) throw new NotFoundException('The provided User does not have a Shopping Cart');
-    if (user.shoppingCart.isEmpty)
-      throw new ForbiddenException('The provided User does not have any Item in its Shopping Cart');
-    const products = user.shoppingCart.items.map((item) => {
-      return this.saleProductsRepository.create({
-        product: item.product,
-        amount: item.amount,
-      });
-    });
-    const sale = this.salesRepository.create({
-      soldTo: user,
-      products,
-    });
-    const [err] = await to(this.salesRepository.save(sale));
-    if (err) throw new ForbiddenException(err.name, err.message);
-    return sale;
+    const cart = await this.shoppingCartService.findCart(user.id);
+    if (!cart) throw new NotFoundException('The provided User does not have a Shopping Cart');
+    if (cart.isEmpty) throw new ForbiddenException('The provided User does not have any Item in its Shopping Cart');
+    const sale = this.salesRepository.create({ soldTo: user });
+    const res = await this.salesRepository.save(sale);
+    const products = await Promise.all(
+      cart.items.map(async (item) => {
+        const product = this.saleProductsRepository.create({
+          sale: res,
+          product: item.product,
+          amount: item.amount,
+        });
+        const productRes = await this.saleProductsRepository.save(product);
+        await this.productsService.updateById(product.product.id, { stock: product.product.stock - item.amount });
+        return productRes;
+      }),
+    );
+    for (const item of cart.items) await this.shoppingCartService.removeItem(user.id, { shoppingCartItemId: item.id });
+    return { ...res, products } as Sale;
   }
 
   async find(options?: FindManyOptions<Sale>): Promise<Sale[]> {
-    const sales = this.salesRepository.find(options);
+    const sales = await this.salesRepository.find(options);
     return sales;
   }
 

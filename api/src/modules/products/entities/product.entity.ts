@@ -28,4 +28,7 @@ export class Product {
   @Min(0)
   @Column()
   stock: number;
+
+  @Column({ default: false })
+  deleted: boolean;
 }

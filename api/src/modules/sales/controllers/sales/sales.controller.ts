@@ -10,7 +10,7 @@ import { Sale } from '@sales/entities';
 import { User } from '@users/entities';
 
 @ApiTags('Sales')
-@Controller(API_ENDPOINTS.USERS.BASE_PATH)
+@Controller(API_ENDPOINTS.SALES.BASE_PATH)
 export class SalesController {
   constructor(private readonly salesService: SalesService) {}
 
@@ -55,7 +55,7 @@ export class SalesController {
 
   @ApiGet({
     path: API_ENDPOINTS.SALES.OWN,
-    roles: [AuthRole.CLIENT],
+    roles: [AuthRole.ADMIN, AuthRole.CLIENT],
     summary: 'Get all `Sales` made by the current logged in User',
     description: 'Retrieves a list containing every `Sale` record in the database made by the current logged in User',
     responseDescription:

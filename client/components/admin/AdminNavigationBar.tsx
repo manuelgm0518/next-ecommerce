@@ -22,9 +22,6 @@ export default function AdminNavigationBar() {
             <Link href="/admin">Productos</Link>
           </li>
           <li>
-            <Link href="/admin/users">Usuarios</Link>
-          </li>
-          <li>
             <Link href="/admin/sales">Ventas</Link>
           </li>
         </ul>

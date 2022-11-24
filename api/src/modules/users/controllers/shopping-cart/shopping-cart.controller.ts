@@ -15,7 +15,6 @@ export class ShoppingCartController {
   constructor(private readonly shoppingCartService: ShoppingCartService) {}
 
   @ApiGet({
-    path: API_ENDPOINTS.USERS.SHOPPING_CART.BASE_PATH,
     roles: [AuthRole.CLIENT],
     summary: 'Get the `ShoppingCart`',
     description: 'Retrieves the `ShoppingCart` of the current logged in `User`',

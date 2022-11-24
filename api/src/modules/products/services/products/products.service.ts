@@ -21,7 +21,7 @@ export class ProductsService {
   }
 
   async find(options?: FindManyOptions<Product>): Promise<Product[]> {
-    const products = this.productsRepository.find(options);
+    const products = this.productsRepository.find({ ...options, where: { deleted: false } });
     return products;
   }
 
@@ -39,8 +39,9 @@ export class ProductsService {
   }
 
   async deleteById(id: number): Promise<Product> {
-    const product = await this.productsRepository.findOneBy({ id });
+    const product = await this.productsRepository.preload({ id, deleted: true });
     if (!product) throw new NotFoundException('Product not found');
-    return await this.productsRepository.remove(product);
+    await this.productsRepository.update({ id }, { deleted: true });
+    return product;
   }
 }

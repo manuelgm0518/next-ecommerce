@@ -1,4 +1,4 @@
-import { CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 
 import { User } from '@users/entities';
@@ -14,6 +14,7 @@ export class Sale {
   soldAt: Date;
 
   @ApiProperty()
+  @ManyToOne(() => User, { eager: true })
   soldTo: User;
 
   @ApiProperty({ type: () => SaleProduct, isArray: true })

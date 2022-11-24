@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 
 import { Product } from '@products/entities';
@@ -9,10 +9,12 @@ export class SaleProduct {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ApiProperty()
+  @ApiProperty({ type: () => Sale })
+  @ManyToOne(() => Sale, (sale) => sale.products)
   sale: Sale;
 
   @ApiProperty()
+  @ManyToOne(() => Product, { eager: true })
   product: Product;
 
   @ApiProperty()

@@ -34,13 +34,19 @@ export class ShoppingCartService {
 
   async addItem(userId: number, dto: ShoppingCartAddItemDto): Promise<ShoppingCartItem> {
     const cart = await this.findCart(userId);
-    const item = this.shoppingCartItemsRepository.create({
-      shoppingCart: { id: cart.id },
-      product: { id: dto.productId },
-    });
-    const [err] = await to(this.shoppingCartItemsRepository.save(item));
-    if (err) throw new ForbiddenException(err.name, err.message);
-    return item;
+    const exists = await this.shoppingCartItemsRepository.findOneBy({ product: { id: dto.productId } });
+    if (exists) {
+      await this.shoppingCartItemsRepository.update({ id: exists.id }, { amount: exists.amount + dto.amount });
+      return exists;
+    } else {
+      const item = this.shoppingCartItemsRepository.create({
+        shoppingCart: { id: cart.id },
+        product: { id: dto.productId },
+      });
+      const [err] = await to(this.shoppingCartItemsRepository.save(item));
+      if (err) throw new ForbiddenException(err.name, err.message);
+      return item;
+    }
   }
 
   async updateItem(userId: number, dto: ShoppingCartUpdateItemDto): Promise<ShoppingCartItem> {
